@@ -1,0 +1,44 @@
+.domain-shell__symbol {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--color-sky), var(--color-surface));
+  box-shadow: var(--shadow-soft);
+}
+
+.domain-shell__hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(135deg, rgba(227, 236, 247, 0.88), rgba(255, 253, 248, 0.9)),
+    var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.domain-shell__hero h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+}
+
+.domain-shell__hero p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.domain-shell__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
