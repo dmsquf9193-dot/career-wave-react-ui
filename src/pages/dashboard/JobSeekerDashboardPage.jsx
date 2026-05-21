@@ -68,22 +68,13 @@ function JobSeekerDashboardPage() {
         <div className="cw-home-hero__copy">
           <span>AI 기반 커리어 가속화 솔루션</span>
           <h1>
-            AI와 함께,
-            <br />
-            당신의 커리어에 파도를 일으키세요
+            <span>AI와 함께,</span>
+            <span>당신의 커리어에 파도를 일으키세요</span>
           </h1>
           <p>
             수천 개의 데이터를 분석한 AI 코치가 당신의 역량을 진단하고, 최적의 IT 커리어
             경로와 매칭 기회를 실시간으로 제안합니다.
           </p>
-          <div className="cw-home-actions">
-            <a className="cw-home-button cw-home-button--primary" href="#jobs">
-              내 역량 진단받기
-            </a>
-            <a className="cw-home-button cw-home-button--secondary" href="#matching">
-              서비스 둘러보기
-            </a>
-          </div>
         </div>
 
         <div className="cw-home-hero__media">

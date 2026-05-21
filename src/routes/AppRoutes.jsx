@@ -6,6 +6,7 @@ import CompanyDashboardPage from '../pages/dashboard/CompanyDashboardPage';
 
 import LoginPage from '../pages/auth/LoginPage';
 import RegisterPage from '../pages/auth/RegisterPage';
+import RegisterVerifyPage from '../pages/auth/RegisterVerifyPage';
 import ProfilePage from '../pages/auth/ProfilePage';
 
 import CompanyProfilePage from '../pages/company/CompanyProfilePage';
@@ -49,6 +50,7 @@ function AppRoutes() {
           <Route index element={<Navigate to="/auth/login" replace />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
+          <Route path="register/verify" element={<RegisterVerifyPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
 
@@ -60,9 +62,9 @@ function AppRoutes() {
 
         <Route path="jobs">
           <Route index element={<JobNoticeListPage />} />
-          <Route path=":jobId" element={<JobNoticeDetailPage />} />
           <Route path="create" element={<JobNoticeCreatePage />} />
           <Route path="scraping" element={<JobScrapingPage />} />
+          <Route path=":jobId" element={<JobNoticeDetailPage />} />
         </Route>
 
         <Route path="applications">

@@ -1,23 +1,22 @@
-import { ChevronDown, Menu, Search, Sparkles } from 'lucide-react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, Search, Sparkles } from 'lucide-react';
+import { serviceMenus } from '../../constants/serviceMenus';
 import './Header.css';
 
-const primaryMenu = [
-  '채용정보',
-  '취업축하금',
-  '신입·인턴',
-  '커리어스토어',
-  '기업·연봉',
-  '커뮤니티',
-  '취업 자료',
-];
-
 function Header() {
+  const { pathname } = useLocation();
+
+  const isMenuActive = (item) =>
+    pathname === item.href ||
+    pathname.startsWith(`${item.href}/`) ||
+    item.children?.some((child) => pathname === child.href || pathname.startsWith(`${child.href}/`));
+
   return (
     <header className="cw-header">
       <div className="cw-header__top">
-        <a className="cw-header__brand" href="/">
+        <Link className="cw-header__brand" to="/">
           Career Wave
-        </a>
+        </Link>
 
         <div className="cw-header__search-group">
           <form className="cw-header__search" role="search">
@@ -31,12 +30,8 @@ function Header() {
         </div>
 
         <nav className="cw-header__account" aria-label="계정 메뉴">
-          <a href="/auth/login">로그인</a>
-          <a href="/auth/register">회원가입</a>
-          <a className="cw-header__company" href="/company/profile">
-            기업서비스
-            <ChevronDown size={16} />
-          </a>
+          <NavLink to="/auth/login">로그인</NavLink>
+          <NavLink to="/auth/register">회원가입</NavLink>
         </nav>
       </div>
 
@@ -46,18 +41,29 @@ function Header() {
         </button>
 
         <nav className="cw-header__nav" aria-label="주요 메뉴">
-          {primaryMenu.map((item, index) => (
-            <a className={index === 1 ? 'is-featured' : ''} href="#" key={item}>
-              {index === 1 && <span>취업 시 커피쿠폰</span>}
-              {item}
-            </a>
+          {serviceMenus.map((item) => (
+            <div className={`cw-header__nav-item ${isMenuActive(item) ? 'is-active' : ''}`} key={item.label}>
+              <NavLink className="cw-header__nav-link" to={item.href}>
+                {item.label}
+              </NavLink>
+              {item.children && (
+                <div className="cw-header__submenu" role="menu">
+                  {item.children.map((child) => (
+                    <NavLink
+                      className={({ isActive }) => (isActive ? 'is-active' : undefined)}
+                      end
+                      key={child.label}
+                      role="menuitem"
+                      to={child.href}
+                    >
+                      {child.label}
+                    </NavLink>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
-
-        <a className="cw-header__post" href="/community">
-          조언이 필요할 때 문세 포스터디
-          <Sparkles size={18} />
-        </a>
       </div>
     </header>
   );
