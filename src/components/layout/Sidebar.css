@@ -29,7 +29,7 @@
 .sidebar__brand strong {
   display: block;
   font-size: 19px;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .sidebar__brand span {

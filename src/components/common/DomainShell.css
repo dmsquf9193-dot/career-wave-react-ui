@@ -1,3 +1,4 @@
+.cw-domain-shell__symbol,
 .domain-shell__symbol {
   display: grid;
   place-items: center;
@@ -10,6 +11,7 @@
   box-shadow: var(--shadow-soft);
 }
 
+.cw-domain-shell__header,
 .domain-shell__hero {
   display: flex;
   justify-content: space-between;
@@ -23,12 +25,14 @@
   box-shadow: var(--shadow-card);
 }
 
+.cw-domain-shell__title,
 .domain-shell__hero h2 {
   margin: 0 0 10px;
   font-size: 24px;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
+.cw-domain-shell__description,
 .domain-shell__hero p {
   max-width: 680px;
   margin: 0;
@@ -36,9 +40,33 @@
   line-height: 1.7;
 }
 
+.cw-domain-shell__actions,
 .domain-shell__actions {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.cw-domain-shell__eyebrow {
+  margin: 0 0 8px;
+  color: var(--color-primary-dark);
+  font-weight: 800;
+}
+
+.cw-domain-shell__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .cw-domain-shell__header {
+    flex-direction: column;
+  }
+
+  .cw-domain-shell__grid {
+    grid-template-columns: 1fr;
+  }
 }
