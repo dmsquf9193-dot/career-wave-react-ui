@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, Search, Sparkles } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { serviceMenus } from '../../constants/serviceMenus';
+import logo from '../../assets/logo.svg';
 import './Header.css';
 
 function Header() {
@@ -13,32 +14,18 @@ function Header() {
 
   return (
     <header className="cw-header">
-      <div className="cw-header__top">
-        <Link className="cw-header__brand" to="/">
-          Career Wave
+      <div className="cw-header__inner">
+        <Link className="cw-header__brand" to="/" aria-label="Career Wave 홈">
+          <img src={logo} alt="" />
+          <span>Career Wave</span>
         </Link>
 
-        <div className="cw-header__search-group">
-          <form className="cw-header__search" role="search">
-            <Search size={26} />
-            <input aria-label="검색" placeholder="커리어의 시작, 커리어 웨이브" />
-          </form>
-          <button className="cw-header__ai" type="button">
-            <Sparkles size={17} />
-            검색
+        <form className="cw-header__search" role="search">
+          <input aria-label="검색어" placeholder="원하는 직무, 기업, 키워드를 검색해 보세요" />
+          <button type="submit" aria-label="검색">
+            <Search size={19} />
           </button>
-        </div>
-
-        <nav className="cw-header__account" aria-label="계정 메뉴">
-          <NavLink to="/auth/login">로그인</NavLink>
-          <NavLink to="/auth/register">회원가입</NavLink>
-        </nav>
-      </div>
-
-      <div className="cw-header__bottom">
-        <button className="cw-header__menu" type="button" aria-label="전체 메뉴">
-          <Menu size={25} />
-        </button>
+        </form>
 
         <nav className="cw-header__nav" aria-label="주요 메뉴">
           {serviceMenus.map((item) => (
@@ -63,6 +50,13 @@ function Header() {
               )}
             </div>
           ))}
+        </nav>
+
+        <nav className="cw-header__account" aria-label="계정 메뉴">
+          <NavLink to="/auth/login">로그인</NavLink>
+          <NavLink className="is-primary" to="/auth/register">
+            회원가입
+          </NavLink>
         </nav>
       </div>
     </header>

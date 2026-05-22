@@ -3,8 +3,7 @@ export const serviceMenus = [
     label: '채용공고',
     href: '/jobs',
     children: [
-      { label: '채용공고 홈', href: '/jobs' },
-      { label: '공고 상세', href: '/jobs/demo' },
+      { label: '채용공고 목록', href: '/jobs' },
       { label: '공고 등록', href: '/jobs/create' },
       { label: '공고 스크래핑', href: '/jobs/scraping' },
     ],
@@ -23,7 +22,7 @@ export const serviceMenus = [
     children: [
       { label: '면접 홈', href: '/interview' },
       { label: '텍스트 면접', href: '/interview/text' },
-      { label: '화상 면접', href: '/interview/media' },
+      { label: '영상 면접', href: '/interview/media' },
       { label: '면접 리포트', href: '/interview/report' },
     ],
   },
@@ -32,7 +31,7 @@ export const serviceMenus = [
     href: '/applications/status',
     children: [
       { label: '지원 현황', href: '/applications/status' },
-      { label: '입사지원', href: '/applications/apply' },
+      { label: '입사 지원', href: '/applications/apply' },
       { label: '지원자 관리', href: '/applications/applicants' },
     ],
   },
